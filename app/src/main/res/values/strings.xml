@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">LiveDataMVVM</string>
+    <string name="text_to_write">Text to write</string>
+    <string name="text_to_display">Text to display</string>
 </resources>
