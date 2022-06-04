@@ -6,6 +6,10 @@ import androidx.lifecycle.ViewModel;
 public class FragmentViewModel extends ViewModel {
     private MutableLiveData<String> mText;
 
+    public FragmentViewModel() {
+        this.mText = new MutableLiveData<>();
+    }
+
     public MutableLiveData<String> getString() {
         return mText;
     }
