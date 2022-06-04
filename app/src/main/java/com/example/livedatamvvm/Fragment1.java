@@ -20,11 +20,10 @@ public class Fragment1 extends Fragment {
     private Fragment1Binding binding;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         this.binding = Fragment1Binding.inflate(inflater, container, false);
-        View root = binding.getRoot();
-        return root;
+        return binding.getRoot();
         //return inflater.inflate(R.layout.fragment_1, container, false);
     }
 
@@ -32,7 +31,7 @@ public class Fragment1 extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        this.viewModel = new ViewModelProvider(getActivity()).get(FragmentViewModel.class);
+        this.viewModel = new ViewModelProvider(requireActivity()).get(FragmentViewModel.class);
         this.binding.editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

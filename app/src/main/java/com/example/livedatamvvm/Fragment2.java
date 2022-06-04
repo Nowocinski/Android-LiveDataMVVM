@@ -13,27 +13,23 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.livedatamvvm.databinding.Fragment2Binding;
 
 public class Fragment2 extends Fragment {
-    private FragmentViewModel viewModel;
     private Fragment2Binding binding;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         this.binding = Fragment2Binding.inflate(inflater, container, false);
-        View root = binding.getRoot();
-        return root;
+        return binding.getRoot();
         //return inflater.inflate(R.layout.fragment_2, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        this.viewModel = new ViewModelProvider(getActivity()).get(FragmentViewModel.class);
+        FragmentViewModel viewModel = new ViewModelProvider(requireActivity()).get(FragmentViewModel.class);
 
-        this.viewModel.getString()
+        viewModel.getString()
                 //.observe(getViewLifecycleOwner(), textView::setText);
-                .observe(getViewLifecycleOwner(), s -> {
-                    binding.textView.setText(s);
-                });
+                .observe(getViewLifecycleOwner(), s -> binding.textView.setText(s));
     }
 }
